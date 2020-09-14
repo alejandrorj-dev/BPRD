@@ -1,0 +1,78 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
+  `Id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre1_usuario` VARCHAR(45) NOT NULL,
+  `nombre2_usuario` VARCHAR(45) NOT NULL,
+  `apellido1_usuario` VARCHAR(45) NOT NULL,
+  `apellido2_usuario` VARCHAR(45) NOT NULL,
+  `clave_usuario` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`Id_usuario`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Delincuente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Delincuente` (
+  `CC_delincuente` INT NOT NULL,
+  `Primernombre_delin` VARCHAR(45) NOT NULL,
+  `Segundonombre_delin` VARCHAR(45) NULL,
+  `Primerape_delin` VARCHAR(45) NOT NULL,
+  `Segundoape_delin` VARCHAR(45) NULL,
+  `Seudonimno_delin` VARCHAR(45) NULL,
+  `Fechanac_delin` VARCHAR(45) NOT NULL,
+  `Paisnac_delin` VARCHAR(45) NOT NULL,
+  `Señales_delin` VARCHAR(45) NULL,
+  `Raza_delin` VARCHAR(45) NOT NULL,
+  `Direcactual_delin` VARCHAR(45) NULL,
+  `Foto_delin` VARCHAR(45) NULL,
+  PRIMARY KEY (`CC_delincuente`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Prontuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Prontuario` (
+  `ID_prontuario` INT NOT NULL,
+  `Fecha_crimen_p` VARCHAR(45) NOT NULL,
+  `Descripcion_crimen_p` VARCHAR(45) NOT NULL,
+  `Cárcel_asign_p` VARCHAR(45) NOT NULL,
+  `Tiempo_pagado_p` VARCHAR(45) NOT NULL,
+  `Fechaentradacarcel_p` VARCHAR(45) NOT NULL,
+  `Fechasalidacarcel_p` VARCHAR(45) NOT NULL,
+  `Delincuente_CC_delincuente` INT NOT NULL,
+  PRIMARY KEY (`ID_prontuario`, `Delincuente_CC_delincuente`),
+  INDEX `fk_Prontuario_Delincuente_idx` (`Delincuente_CC_delincuente` ASC),
+  CONSTRAINT `fk_Prontuario_Delincuente`
+    FOREIGN KEY (`Delincuente_CC_delincuente`)
+    REFERENCES `mydb`.`Delincuente` (`CC_delincuente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Pais_delito`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Pais_delito` (
+  `ID_pais` INT NOT NULL,
+  `Nombre_pais` VARCHAR(45) NOT NULL,
+  `Estado_pais` VARCHAR(45) NOT NULL,
+  `Ciudad_pais` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ID_pais`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

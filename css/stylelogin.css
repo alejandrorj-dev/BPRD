@@ -1,0 +1,43 @@
+
+
+
+#micontenedor{
+	background-color: white;
+	background-image: url("fondo.png");
+	height: 650px;
+
+}
+
+#formulario{
+	/*background-color: gray;*/
+	
+	box-shadow: 8px, 8px, 8px, 8px;
+	background-color: #D9D9F2;
+	border-radius: 8px;
+	
+}
+
+#logo{
+
+	margin-left: 75px;
+}
+
+#titulologin{
+	margin-left: 70px
+}
+
+.form-control{
+
+	position: relative;
+	margin-left: 40px;
+}
+
+
+
+#btningresar{
+
+	margin-left: 50px;
+
+}
+
+

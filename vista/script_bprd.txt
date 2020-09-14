@@ -1,0 +1,28 @@
+
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+
+CREATE DATABASE bprd;
+USE bprd;
+CREATE TABLE `usuario` (
+  `usua_id` INT NOT NULL AUTO_INCREMENT,
+  `usua_nombre` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `usua_password` VARCHAR(45) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `usua_apellido1` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
+  `usua_apellido2` VARCHAR(30) CHARACTER SET latin1 COLLATE latin1_spanish_ci,
+  `usua_tel` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`usua_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+INSERT INTO `usuario` (`usua_id`, `usua_nombre`, `usua_password`,`usua_apellido1`, `usua_apellido2`,`usua_tel`) VALUES
+(1,	'Walter', ' ', 'Arias',   'Aguirre ', '3128496280'),
+(2,	'Manuela', ' ', 'Lopez', 'Narvaez', '3006660202'),
+(3,	'Diego', ' ', 'Gomez',	'Bueno', '3152604875'),
+(4,	'Tomas', ' ', 'Ocoro',	'Caicedo', '3178965425'),
+(5,	'Eugenio', ' ', 'Jimenez', 'Cespedes', '3115894565');
+
+-- 2014-08-21 20:36:27
