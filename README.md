@@ -7,9 +7,9 @@ Information System for manage information about dangerous criminals and their cr
 
 Members:
 
-Mauricio Montaño Moreno
-William Higuera Panameño
-Alejandro Rodríguez Jiménez
+Mauricio Montaño Moreno,
+William Higuera Panameño,
+Alejandro Rodríguez Jiménez.
 
 
 SENA - Agroindustrials Technologies Center.
